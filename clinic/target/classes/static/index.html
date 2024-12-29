@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futuristic Patient Form</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Background and general style */
+        body {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            font-family: 'Poppins', sans-serif;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .form-container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: center;
+            color: #f0f8ff;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .form-label {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #cce7ff;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-control,
+        .form-select {
+            background: rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            border: 1px solid #ccdfff;
+            border-radius: 10px;
+            height: 40px;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .form-control:focus,
+        .form-select:focus {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: #66b2ff;
+            box-shadow: 0 0 10px rgba(102, 178, 255, 0.5);
+        }
+
+        textarea {
+            resize: none;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            border: 1px solid #ccdfff;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        textarea:focus {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: #66b2ff;
+            box-shadow: 0 0 10px rgba(102, 178, 255, 0.5);
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            width: 100%;
+            transition: background 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-submit:hover {
+            background: linear-gradient(135deg, #0072ff, #00c6ff);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-submit:active {
+            transform: translateY(0);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Animation for form fields */
+        input, textarea, select {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .clinic-logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .clinic-subtitle {
+            font-size: 1.2rem;
+            color: #cce7ff;
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+
+        .clinic-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        
+        /* Header design for futuristic layout */
+.clinic-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(135deg, #141e30, #243b55); /* Futuristic dark gradient */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+}
+
+.clinic-logo-img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%; /* Makes the image circular */
+    border: 3px solid #00c6ff; /* Glowing futuristic border */
+    box-shadow: 0 0 15px rgba(0, 198, 255, 0.5), 0 0 30px rgba(0, 114, 255, 0.3);
+    margin-right: 20px;
+}
+
+.clinic-text {
+    text-align: right;
+    color: #f0f8ff;
+}
+
+.clinic-logo {
+    font-size: 2.2rem;
+    font-weight: bold;
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    margin: 0;
+}
+
+.clinic-subtitle {
+    font-size: 1.1rem;
+    color: #cce7ff;
+    font-style: italic;
+    margin-top: 5px;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+        
+        
+    </style>
+</head>
+<body>
+<header class="clinic-header d-flex align-items-center">
+    <img src="noble.jpg" alt="Clinic Logo" class="clinic-logo-img">
+    <div class="clinic-text">
+        <div class="clinic-logo">Noble Homeopathy Clinic</div>
+        <div class="clinic-subtitle">Where Healing Meets Innovation</div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="form-container">
+        <h2>Patient Details Form</h2>
+        <form action="/data/save" method="post">
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="regNo" class="form-label">Registration Number</label>
+                    <div class="input-group">
+                        <input type="text" id="regNo" name="regNo" class="form-control" required>
+                        <button type="button" class="btn btn-primary" id="searchBtn">Search</button>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="date" class="form-label">Date</label>
+                    <input type="date" id="date" name="date" class="form-control" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="patientName" class="form-label">Patient Name</label>
+                    <input type="text" id="patientName" name="patientName" class="form-control" required>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label for="age" class="form-label">Age</label>
+                    <input type="number" id="age" name="age" class="form-control" required>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label for="genderGroup" class="form-label">Gender</label>
+                    <select id="genderGroup" name="genderGroup" class="form-select">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="occupation" class="form-label">Occupation</label>
+                    <input type="text" id="occupation" name="occupation" class="form-control">
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="address" class="form-label">Address</label>
+                    <textarea id="address" name="address" class="form-control"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="diagnosis" class="form-label">Diagnosis</label>
+                    <textarea id="diagnosis" name="diagnosis" class="form-control"></textarea>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="prescriptionVisit1" class="form-label">Prescription Visit 1</label>
+                    <textarea id="prescriptionVisit1" name="prescriptionVisit1" class="form-control"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="prescriptionFollowups" class="form-label">Prescription Follow-ups</label>
+                    <textarea id="prescriptionFollowups" name="prescriptionFollowups" class="form-control"></textarea>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="amounts" class="form-label">Amounts</label>
+                    <div class="d-flex gap-2">
+                        <input type="number" id="amount1" name="amount1" class="form-control" placeholder="1" step="0.01">
+                        <input type="number" id="amount2" name="amount2" class="form-control" placeholder="2" step="0.01">
+                        <input type="number" id="amount3" name="amount3" class="form-control" placeholder="3" step="0.01">
+                        <input type="number" id="amount4" name="amount4" class="form-control" placeholder="4" step="0.01">
+                        <input type="number" id="amount5" name="amount5" class="form-control" placeholder="5" step="0.01">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+    <div class="col-md-6 mb-3">
+        <label for="mobileNumber" class="form-label">Mobile Number</label>
+        <input type="tel" id="mobileNumber" name="mobileNumber" class="form-control" pattern="[0-9]{10}" required>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6 mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" id="email" name="email" class="form-control" placeholder="Enter email" required>
+    </div>
+</div>
+
+            
+            <div class="text-center">
+                <button type="submit" class="btn-submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Bootstrap 5 JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    document.getElementById('searchBtn').addEventListener('click', function () {
+        const regNo = document.getElementById('regNo').value;
+
+        if (!regNo.trim()) {
+            alert('Please enter a Registration Number to search.');
+            return;
+        }
+
+        fetch(`/data/search?regNo=${encodeURIComponent(regNo)}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Patient not found.');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Populate form fields with retrieved data
+                document.getElementById('date').value = data.date || '';
+                document.getElementById('patientName').value = data.patientName || '';
+                document.getElementById('age').value = data.age || '';
+                document.getElementById('genderGroup').value = data.genderGroup || '';
+                document.getElementById('occupation').value = data.occupation || '';
+                document.getElementById('address').value = data.address || '';
+                document.getElementById('diagnosis').value = data.diagnosis || '';
+                document.getElementById('prescriptionVisit1').value = data.prescriptionVisit1 || '';
+                document.getElementById('prescriptionFollowups').value = data.prescriptionFollowups || '';
+                document.getElementById('amount1').value = data.amount1 || '';
+                document.getElementById('amount2').value = data.amount2 || '';
+                document.getElementById('amount3').value = data.amount3 || '';
+                document.getElementById('amount4').value = data.amount4 || '';
+                document.getElementById('amount5').value = data.amount5 || '';
+                document.getElementById('mobileNumber').value = data.mobileNumber || '';
+
+                alert('Patient data loaded successfully!');
+            })
+            .catch(error => {
+                alert(error.message || 'An error occurred while retrieving patient data.');
+            });
+    });
+</script>
+</body>
+</html>
